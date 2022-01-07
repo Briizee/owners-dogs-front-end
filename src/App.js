@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import {Switch, Route, Link} from "react-router-dom"
+import { BrowserRouter as Router, Routes} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import './App.css'
+import Navbar from "./components/navbar"
 import AddDog from "./components/add-dog"
 import AddOwner from "./components/add-owner"
 import Dog from "./components/dog"
@@ -20,12 +23,16 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <a href="/" className="navbar-brand">
-          Hana
-        </a>
-      </nav>
-      {dogs && dogs.map(dog => (<img src={dog.photo_url}/>))}
+      <Router>
+      <Navbar />
+        <Routes>
+      <Route path="/owners" component={OwnersList} />
+      <Route path="/dogs" component={DogsList} />
+      </Routes>
+      </Router>
+      <div className="img-container">
+      {dogs && dogs.map(dog => (<div className="dog-photo" role="img" style={{ backgroundImage: `url(${dog.photo_url})`}} alt="photo of a dog"> </div>))}
+      </div>
     </div>
   );
 }
