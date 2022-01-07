@@ -19,7 +19,7 @@ function App() {
     axios.get('http://localhost:3000/dog')
       .then(res => setDogs(res.data))
     console.log(dogs, 'DOGS')
-  })
+  }, [])
 
   return (
     <div>
