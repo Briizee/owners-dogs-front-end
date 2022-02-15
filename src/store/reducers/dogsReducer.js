@@ -3,7 +3,7 @@ import {initialState} from '../index'
 const dogsReducer = function (state = initialState.dogs, action) {
     switch (action.type) {
         case "FETCH_DOGS_SUCCESS":
-            console.log("paylload", action.payload)
+            console.log("payload", action.payload)
             return action.payload
             
         case "FETCH_DOGS_FAIL":

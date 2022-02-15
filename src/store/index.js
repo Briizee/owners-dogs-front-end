@@ -6,7 +6,7 @@ import ownersReducer from './reducers/ownersReducer'
 
 export const initialState = {
     dogs: [],
-    owners: null
+    owners: []
 }
 
 const rootReducer = combineReducers({

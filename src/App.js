@@ -11,11 +11,13 @@ import { store } from './store'
 
 import DogsList from "./components/dogs-list"
 import OwnersList from "./components/owners-list"
+import { getOwners } from "./store/actions/ownersActions"
 
 function App() {
   
   useEffect(() => {
     store.dispatch(getDogs())
+    store.dispatch(getOwners())
   }, [])
 
   return (
